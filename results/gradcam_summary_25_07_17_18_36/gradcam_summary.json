@@ -1,0 +1,182 @@
+[
+  {
+    "image": "n02098286_West_Highland_white_terrier.JPEG",
+    "cam_method": "GradCAM",
+    "predicted_class": "West Highland white terrier",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\GradCAM_n02098286_West_Highland_white_terrier_cam.png"
+  },
+  {
+    "image": "n02098286_West_Highland_white_terrier.JPEG",
+    "cam_method": "AblationCAM",
+    "predicted_class": "West Highland white terrier",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\AblationCAM_n02098286_West_Highland_white_terrier_cam.png"
+  },
+  {
+    "image": "n02098286_West_Highland_white_terrier.JPEG",
+    "cam_method": "ScoreCAM",
+    "predicted_class": "West Highland white terrier",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\ScoreCAM_n02098286_West_Highland_white_terrier_cam.png"
+  },
+  {
+    "image": "n02018207_American_coot.JPEG",
+    "cam_method": "GradCAM",
+    "predicted_class": "American coot",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\GradCAM_n02018207_American_coot_cam.png"
+  },
+  {
+    "image": "n02018207_American_coot.JPEG",
+    "cam_method": "AblationCAM",
+    "predicted_class": "American coot",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\AblationCAM_n02018207_American_coot_cam.png"
+  },
+  {
+    "image": "n02018207_American_coot.JPEG",
+    "cam_method": "ScoreCAM",
+    "predicted_class": "American coot",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\ScoreCAM_n02018207_American_coot_cam.png"
+  },
+  {
+    "image": "n04037443_racer.JPEG",
+    "cam_method": "GradCAM",
+    "predicted_class": "sports car",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\GradCAM_n04037443_racer_cam.png"
+  },
+  {
+    "image": "n04037443_racer.JPEG",
+    "cam_method": "AblationCAM",
+    "predicted_class": "sports car",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\AblationCAM_n04037443_racer_cam.png"
+  },
+  {
+    "image": "n04037443_racer.JPEG",
+    "cam_method": "ScoreCAM",
+    "predicted_class": "sports car",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\ScoreCAM_n04037443_racer_cam.png"
+  },
+  {
+    "image": "n02007558_flamingo.JPEG",
+    "cam_method": "GradCAM",
+    "predicted_class": "flamingo",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\GradCAM_n02007558_flamingo_cam.png"
+  },
+  {
+    "image": "n02007558_flamingo.JPEG",
+    "cam_method": "AblationCAM",
+    "predicted_class": "flamingo",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\AblationCAM_n02007558_flamingo_cam.png"
+  },
+  {
+    "image": "n02007558_flamingo.JPEG",
+    "cam_method": "ScoreCAM",
+    "predicted_class": "flamingo",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\ScoreCAM_n02007558_flamingo_cam.png"
+  },
+  {
+    "image": "n01608432_kite.JPEG",
+    "cam_method": "GradCAM",
+    "predicted_class": "hummingbird",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\GradCAM_n01608432_kite_cam.png"
+  },
+  {
+    "image": "n01608432_kite.JPEG",
+    "cam_method": "AblationCAM",
+    "predicted_class": "hummingbird",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\AblationCAM_n01608432_kite_cam.png"
+  },
+  {
+    "image": "n01608432_kite.JPEG",
+    "cam_method": "ScoreCAM",
+    "predicted_class": "hummingbird",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\ScoreCAM_n01608432_kite_cam.png"
+  },
+  {
+    "image": "n01443537_goldfish.JPEG",
+    "cam_method": "GradCAM",
+    "predicted_class": "goldfish",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\GradCAM_n01443537_goldfish_cam.png"
+  },
+  {
+    "image": "n01443537_goldfish.JPEG",
+    "cam_method": "AblationCAM",
+    "predicted_class": "goldfish",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\AblationCAM_n01443537_goldfish_cam.png"
+  },
+  {
+    "image": "n01443537_goldfish.JPEG",
+    "cam_method": "ScoreCAM",
+    "predicted_class": "goldfish",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\ScoreCAM_n01443537_goldfish_cam.png"
+  },
+  {
+    "image": "n01491361_tiger_shark.JPEG",
+    "cam_method": "GradCAM",
+    "predicted_class": "tiger shark",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\GradCAM_n01491361_tiger_shark_cam.png"
+  },
+  {
+    "image": "n01491361_tiger_shark.JPEG",
+    "cam_method": "AblationCAM",
+    "predicted_class": "tiger shark",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\AblationCAM_n01491361_tiger_shark_cam.png"
+  },
+  {
+    "image": "n01491361_tiger_shark.JPEG",
+    "cam_method": "ScoreCAM",
+    "predicted_class": "tiger shark",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\ScoreCAM_n01491361_tiger_shark_cam.png"
+  },
+  {
+    "image": "n01616318_vulture.JPEG",
+    "cam_method": "GradCAM",
+    "predicted_class": "vulture",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\GradCAM_n01616318_vulture_cam.png"
+  },
+  {
+    "image": "n01616318_vulture.JPEG",
+    "cam_method": "AblationCAM",
+    "predicted_class": "vulture",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\AblationCAM_n01616318_vulture_cam.png"
+  },
+  {
+    "image": "n01616318_vulture.JPEG",
+    "cam_method": "ScoreCAM",
+    "predicted_class": "vulture",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\ScoreCAM_n01616318_vulture_cam.png"
+  },
+  {
+    "image": "n01677366_common_iguana.JPEG",
+    "cam_method": "GradCAM",
+    "predicted_class": "common iguana",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\GradCAM_n01677366_common_iguana_cam.png"
+  },
+  {
+    "image": "n01677366_common_iguana.JPEG",
+    "cam_method": "AblationCAM",
+    "predicted_class": "common iguana",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\AblationCAM_n01677366_common_iguana_cam.png"
+  },
+  {
+    "image": "n01677366_common_iguana.JPEG",
+    "cam_method": "ScoreCAM",
+    "predicted_class": "common iguana",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\ScoreCAM_n01677366_common_iguana_cam.png"
+  },
+  {
+    "image": "n07747607_orange.JPEG",
+    "cam_method": "GradCAM",
+    "predicted_class": "orange",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\GradCAM_n07747607_orange_cam.png"
+  },
+  {
+    "image": "n07747607_orange.JPEG",
+    "cam_method": "AblationCAM",
+    "predicted_class": "orange",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\AblationCAM_n07747607_orange_cam.png"
+  },
+  {
+    "image": "n07747607_orange.JPEG",
+    "cam_method": "ScoreCAM",
+    "predicted_class": "orange",
+    "cam_image": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\ScoreCAM_n07747607_orange_cam.png"
+  }
+]
