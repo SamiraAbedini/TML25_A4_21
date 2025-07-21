@@ -15,7 +15,7 @@ import json
 import sys
 from tqdm import tqdm
 
-# Use absolute path for clip_dissect
+
 base_path = r'F:\A-Saarland-University-Courses\TML\TML25_A4_21'
 sys.path.append(os.path.join(base_path, 'clip_dissect'))
 try:
@@ -25,11 +25,11 @@ except ImportError:
     print("Error: CLIP-dissect modules (utils, similarity) not found in 'clip_dissect'. Ensure they are present.")
     sys.exit(1)
 
-# Ensure data directory exists
+
 data_dir = os.path.join(base_path, 'data')
 os.makedirs(data_dir, exist_ok=True)
 
-# Custom dataset for ImageNet sample images
+
 class ImageNetSampleDataset(Dataset):
     def __init__(self, root_dir, transform=None):
         self.root_dir = root_dir
@@ -52,7 +52,7 @@ class ImageNetSampleDataset(Dataset):
             image = self.transform(image)
         return image, label, img_path
 
-# Preprocessing for ResNet18 and CLIP
+
 preprocess = transforms.Compose([
     transforms.Resize(256, antialias=True),
     transforms.CenterCrop(224),
@@ -60,7 +60,7 @@ preprocess = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 
-# Create concept set (20k.txt)
+
 concept_set_path = os.path.join(base_path, 'data', '20k.txt')
 image_dir = os.path.join(base_path, 'data', 'imagenet-sample-images')
 if not os.path.exists(concept_set_path):
@@ -74,7 +74,7 @@ if not os.path.exists(concept_set_path):
         print(f"Error creating concept set: {e}")
         sys.exit(1)
 
-# Load dataset
+
 try:
     dataset = ImageNetSampleDataset(root_dir=image_dir, transform=preprocess)
     dataloader = DataLoader(dataset, batch_size=32, shuffle=False)
@@ -82,15 +82,15 @@ except FileNotFoundError as e:
     print(f"Error loading dataset: {e}")
     sys.exit(1)
 
-# Load models
+
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-# ResNet18 (ImageNet)
+
 model_imagenet = models.resnet18(weights=ResNet18_Weights.IMAGENET1K_V1)
 model_imagenet.eval()
 model_imagenet = model_imagenet.to(device)
 
-# ResNet18 (Places365)
+
 model_places365 = None
 try:
     model_places365 = models.resnet18()
@@ -109,21 +109,21 @@ try:
 except Exception as e:
     print(f"Error loading Places365 model: {e}. Continuing with ImageNet model only.")
 
-# Load CLIP model
+
 try:
     clip_model, clip_preprocess = clip.load('ViT-B/16', device=device)
 except Exception as e:
     print(f"Error loading CLIP model: {e}")
     sys.exit(1)
 
-# Embedded describe_neurons.py logic
+
 def run_network_dissection(model, model_name, target_layers, dataloader, concept_set, activation_dir, result_dir):
     args = {
         'clip_model': 'ViT-B/16',
         'target_model': model_name,
         'target_layers': target_layers,
         'd_probe': 'custom_imagenet',
-        'concept_set': os.path.basename(concept_set),  # Use only filename
+        'concept_set': os.path.basename(concept_set),   
         'batch_size': 32,
         'device': device,
         'activation_dir': activation_dir,
@@ -132,20 +132,20 @@ def run_network_dissection(model, model_name, target_layers, dataloader, concept
         'similarity_fn': 'soft_wpmi'
     }
 
-    # Create directories
+
     os.makedirs(args['activation_dir'], exist_ok=True)
     os.makedirs(args['result_dir'], exist_ok=True)
 
-    # Save activations (adapted from describe_neurons.py)
+
     def save_activations(clip_name, target_name, target_layers, d_probe, concept_set, batch_size, device, pool_mode, save_dir, dataset):
-        # Load CLIP text embeddings
+
         with open(concept_set, 'r') as f:
             words = f.read().split('\n')
         clip_texts = clip.tokenize(words).to(device)
         with torch.no_grad():
             text_features = clip_model.encode_text(clip_texts)
 
-        # Initialize target model hook
+
         activations = {}
         def hook_fn(module, input, output):
             if pool_mode == 'avg':
@@ -159,7 +159,7 @@ def run_network_dissection(model, model_name, target_layers, dataloader, concept
             handle = layer.register_forward_hook(hook_fn)
             handles.append(handle)
 
-        # Process dataset with progress bar
+
         target_acts = {layer: [] for layer in target_layers}
         clip_acts = []
         image_paths = []
@@ -169,30 +169,30 @@ def run_network_dissection(model, model_name, target_layers, dataloader, concept
                 images, _, paths = batch
                 images = images.to(device)
                 
-                # Target model activations
+
                 model(images)
                 for layer_name in target_layers:
                     layer = dict(model.named_modules())[layer_name]
                     target_acts[layer_name].append(activations[layer].cpu())
                 
-                # CLIP activations (convert tensor to PIL Image)
+
                 clip_images = []
                 for img in images:
-                    img = to_pil(img.cpu())  # Convert tensor to PIL Image
+                    img = to_pil(img.cpu()) 
                     clip_images.append(clip_preprocess(img))
                 clip_images = torch.stack(clip_images).to(device)
                 clip_features = clip_model.encode_image(clip_images)
                 clip_acts.append(clip_features.cpu())
                 image_paths.extend(paths)
 
-        # Save activations
+
         for layer_name in target_layers:
             save_names = utils.get_save_names(
                 clip_name=clip_name,
                 target_name=target_name,
                 target_layer=layer_name,
                 d_probe=d_probe,
-                concept_set=os.path.basename(concept_set),  # Use only filename
+                concept_set=os.path.basename(concept_set), 
                 pool_mode=pool_mode,
                 save_dir=save_dir
             )
@@ -202,19 +202,19 @@ def run_network_dissection(model, model_name, target_layers, dataloader, concept
             torch.save(torch.cat(clip_acts, dim=0), clip_save_name)
             torch.save(text_features.cpu(), text_save_name)
 
-        # Remove hooks
+
         for handle in handles:
             handle.remove()
 
         return image_paths
 
-    # Run save_activations
+
     image_paths = save_activations(
         clip_name=args['clip_model'],
         target_name=args['target_model'],
         target_layers=args['target_layers'],
         d_probe=args['d_probe'],
-        concept_set=concept_set,  # Pass full path for reading
+        concept_set=concept_set, 
         batch_size=args['batch_size'],
         device=args['device'],
         pool_mode=args['pool_mode'],
@@ -222,7 +222,7 @@ def run_network_dissection(model, model_name, target_layers, dataloader, concept
         dataset=dataloader
     )
 
-    # Process layers
+
     similarity_fn = eval("similarity.{}".format(args['similarity_fn']))
     outputs = {"layer": [], "unit": [], "description": [], "similarity": [], "top_images": []}
     with open(concept_set, 'r') as f:
@@ -245,7 +245,7 @@ def run_network_dissection(model, model_name, target_layers, dataloader, concept
                 target_save_name, clip_save_name, text_save_name, similarity_fn,
                 return_target_feats=True, device=args['device']
             )
-            # Handle tuple output
+
             if isinstance(result, tuple):
                 similarities, target_features = result
             else:
@@ -256,7 +256,7 @@ def run_network_dissection(model, model_name, target_layers, dataloader, concept
             vals, ids = torch.max(similarities, dim=1)
             descriptions = [words[int(idx)] for idx in ids]
 
-            # Find top-activating images
+
             top_images = []
             for unit in range(len(vals)):
                 unit_activations = target_features[:, unit]
@@ -275,7 +275,7 @@ def run_network_dissection(model, model_name, target_layers, dataloader, concept
             print(f"Error processing layer {target_layer}: {e}")
             continue
 
-    # Save results
+
     df = pd.DataFrame(outputs)
     save_path = os.path.join(args['result_dir'], f"{args['target_model']}_{datetime.datetime.now().strftime('%y_%m_%d_%H_%M')}")
     os.makedirs(save_path, exist_ok=True)
@@ -284,7 +284,7 @@ def run_network_dissection(model, model_name, target_layers, dataloader, concept
         json.dump(args, f, indent=2)
     return df
 
-# Run Network Dissection
+
 target_layers = ['layer2', 'layer3', 'layer4']
 results = {}
 models_to_process = [('imagenet', model_imagenet)]
@@ -307,7 +307,7 @@ for model_name, model in models_to_process:
         print(f"Error running dissection for {model_name}: {e}")
         continue
 
-# Analyze results
+
 concept_counts = {}
 for model_name, df in results.items():
     concept_counts[model_name] = {}
@@ -315,24 +315,24 @@ for model_name, df in results.items():
         layer_df = df[df['layer'] == layer]
         concept_counts[model_name][layer] = Counter(layer_df['description'])
 
-# Compare models (layer4)
+
 imagenet_concepts = set(concept_counts.get('imagenet', {}).get('layer4', {}).keys())
 places365_concepts = set(concept_counts.get('places', {}).get('layer4', {}).keys())
 shared_concepts = imagenet_concepts.intersection(places365_concepts)
 unique_imagenet = imagenet_concepts - places365_concepts
 unique_places365 = places365_concepts - imagenet_concepts
 
-# Print analysis
+
 print(f"Shared concepts (layer4): {len(shared_concepts)}")
 print(f"Unique to ImageNet (layer4): {len(unique_imagenet)}")
 print(f"Unique to Places365 (layer4): {len(unique_places365)}")
 
-# Visualizations
+
 os.makedirs(os.path.join(base_path, 'scripts'), exist_ok=True)
 for model_name, layer_counts in concept_counts.items():
     for layer, counts in layer_counts.items():
         top_concepts = counts.most_common(10)
-        if not top_concepts:  # Skip if no concepts
+        if not top_concepts:   
             print(f"No concepts found for {model_name} {layer}, skipping histogram")
             continue
         concepts, counts = zip(*top_concepts)
@@ -346,7 +346,7 @@ for model_name, layer_counts in concept_counts.items():
         plt.savefig(os.path.join(base_path, 'scripts', f'{model_name}_{layer}_histogram.png'))
         plt.close()
 
-# Top-activating images
+
 for model_name, df in results.items():
     layer_df = df[df['layer'] == 'layer4']
     dog_neuron = layer_df[layer_df['description'] == 'dog'].head(1)
@@ -365,7 +365,7 @@ for model_name, df in results.items():
         plt.savefig(os.path.join(base_path, 'scripts', f'{model_name}_layer4_dog_images.png'))
         plt.close()
 
-# Concept overlap
+
 plt.figure(figsize=(8, 6))
 plt.bar(['Shared', 'ImageNet Only', 'Places365 Only'], 
         [len(shared_concepts), len(unique_imagenet), len(unique_places365)],
@@ -376,7 +376,7 @@ plt.tight_layout()
 plt.savefig(os.path.join(base_path, 'scripts', 'concept_overlap.png'))
 plt.close()
 
-# Additional analysis: Layer-wise concept diversity
+
 for model_name in concept_counts:
     diversity = {layer: len(counts) for layer, counts in concept_counts[model_name].items()}
     print(f"{model_name.capitalize()} concept diversity: {diversity}")
