@@ -16,9 +16,11 @@ This repository contains code for analyzing neural network interpretability usin
   - `task1_network_dissection.py`: Performs Network Dissection on ResNet18 (ImageNet and Places365).
   - `task2_gradcam.py`: Generates Grad-CAM, AblationCAM, and ScoreCAM visualizations.
   - `task3_lime.py`: Applies LIME to explain ResNet50 predictions.
+  - `task4_compare.py`: Computes the IoU between Lime and Grad-CAM results and creates figures.
+  - `task4-plot.py`: Creates IoU comparison bar plot.
 - **results/**: Stores output files (e.g., CSVs, JSONs, and visualization directories).
   - `gradcam_summary_*/`: Grad-CAM results and visualizations.
-  - `resnet18_imagenet_*/` and `resnet18_places_*/`: Network Dissection results.
+  - `resnet18_imagenet_*/` and `resnet18_places_*/`: Here you can find the concepts learned by each neuron in the given layers.
   - `lime_summary.json`: LIME analysis summary.
   - `output-png` : This folder includes the results of visualization of different CAM methods, LIME and network dissection.
 - **saved_activations/**: Stores activation data from Network Dissection.
