@@ -1,61 +1,61 @@
 {
     "n02098286_West_Highland_white_terrier": {
         "image_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\data\\imagenet-sample-images\\n02098286_West_Highland_white_terrier.JPEG",
-        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\LIME_n02098286_West_Highland_white_terrier.png",
+        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task3-Results\\2\\LIME_n02098286_West_Highland_white_terrier.png",
         "predicted_class": "West Highland white terrier",
         "class_index": 203
     },
     "n02018207_American_coot": {
         "image_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\data\\imagenet-sample-images\\n02018207_American_coot.JPEG",
-        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\LIME_n02018207_American_coot.png",
+        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task3-Results\\2\\LIME_n02018207_American_coot.png",
         "predicted_class": "American coot",
         "class_index": 137
     },
     "n04037443_racer": {
         "image_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\data\\imagenet-sample-images\\n04037443_racer.JPEG",
-        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\LIME_n04037443_racer.png",
+        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task3-Results\\2\\LIME_n04037443_racer.png",
         "predicted_class": "racer",
         "class_index": 751
     },
     "n02007558_flamingo": {
         "image_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\data\\imagenet-sample-images\\n02007558_flamingo.JPEG",
-        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\LIME_n02007558_flamingo.png",
+        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task3-Results\\2\\LIME_n02007558_flamingo.png",
         "predicted_class": "flamingo",
         "class_index": 130
     },
     "n01608432_kite": {
         "image_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\data\\imagenet-sample-images\\n01608432_kite.JPEG",
-        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\LIME_n01608432_kite.png",
+        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task3-Results\\2\\LIME_n01608432_kite.png",
         "predicted_class": "hip",
         "class_index": 989
     },
     "n01443537_goldfish": {
         "image_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\data\\imagenet-sample-images\\n01443537_goldfish.JPEG",
-        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\LIME_n01443537_goldfish.png",
+        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task3-Results\\2\\LIME_n01443537_goldfish.png",
         "predicted_class": "goldfish",
         "class_index": 1
     },
     "n01491361_tiger_shark": {
         "image_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\data\\imagenet-sample-images\\n01491361_tiger_shark.JPEG",
-        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\LIME_n01491361_tiger_shark.png",
+        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task3-Results\\2\\LIME_n01491361_tiger_shark.png",
         "predicted_class": "tiger shark",
         "class_index": 3
     },
     "n01616318_vulture": {
         "image_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\data\\imagenet-sample-images\\n01616318_vulture.JPEG",
-        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\LIME_n01616318_vulture.png",
+        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task3-Results\\2\\LIME_n01616318_vulture.png",
         "predicted_class": "vulture",
         "class_index": 23
     },
     "n01677366_common_iguana": {
         "image_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\data\\imagenet-sample-images\\n01677366_common_iguana.JPEG",
-        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\LIME_n01677366_common_iguana.png",
+        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task3-Results\\2\\LIME_n01677366_common_iguana.png",
         "predicted_class": "common iguana",
         "class_index": 39
     },
     "n07747607_orange": {
         "image_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\data\\imagenet-sample-images\\n07747607_orange.JPEG",
-        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\scripts\\LIME_n07747607_orange.png",
+        "lime_output": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task3-Results\\2\\LIME_n07747607_orange.png",
         "predicted_class": "orange",
         "class_index": 950
     }

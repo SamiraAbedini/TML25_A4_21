@@ -1,0 +1,72 @@
+[
+    {
+        "image": "n02098286_West_Highland_white_terrier",
+        "predicted_class": "West Highland white terrier",
+        "iou": 0.4007556335177439,
+        "gradcam_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n02098286_West_Highland_white_terrier.png",
+        "lime_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n02098286_West_Highland_white_terrier.png"
+    },
+    {
+        "image": "n02018207_American_coot",
+        "predicted_class": "American coot",
+        "iou": 0.16763183518679856,
+        "gradcam_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n02018207_American_coot.png",
+        "lime_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n02018207_American_coot.png"
+    },
+    {
+        "image": "n04037443_racer",
+        "predicted_class": "sports car",
+        "iou": 0.06064012696733236,
+        "gradcam_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n04037443_racer.png",
+        "lime_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n04037443_racer.png"
+    },
+    {
+        "image": "n02007558_flamingo",
+        "predicted_class": "flamingo",
+        "iou": 0.265905383360522,
+        "gradcam_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n02007558_flamingo.png",
+        "lime_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n02007558_flamingo.png"
+    },
+    {
+        "image": "n01608432_kite",
+        "predicted_class": "hummingbird",
+        "iou": 0.09316879167154053,
+        "gradcam_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n01608432_kite.png",
+        "lime_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n01608432_kite.png"
+    },
+    {
+        "image": "n01443537_goldfish",
+        "predicted_class": "goldfish",
+        "iou": 0.2648059569012279,
+        "gradcam_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n01443537_goldfish.png",
+        "lime_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n01443537_goldfish.png"
+    },
+    {
+        "image": "n01491361_tiger_shark",
+        "predicted_class": "tiger shark",
+        "iou": 0.39306198985219504,
+        "gradcam_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n01491361_tiger_shark.png",
+        "lime_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n01491361_tiger_shark.png"
+    },
+    {
+        "image": "n01616318_vulture",
+        "predicted_class": "vulture",
+        "iou": 0.1732583567635114,
+        "gradcam_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n01616318_vulture.png",
+        "lime_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n01616318_vulture.png"
+    },
+    {
+        "image": "n01677366_common_iguana",
+        "predicted_class": "common iguana",
+        "iou": 0.3518801165533509,
+        "gradcam_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n01677366_common_iguana.png",
+        "lime_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n01677366_common_iguana.png"
+    },
+    {
+        "image": "n07747607_orange",
+        "predicted_class": "orange",
+        "iou": 0.39722841820511606,
+        "gradcam_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n07747607_orange.png",
+        "lime_path": "F:\\A-Saarland-University-Courses\\TML\\TML25_A4_21\\results\\output-png\\Task4-Results\\comparison_n07747607_orange.png"
+    }
+]
