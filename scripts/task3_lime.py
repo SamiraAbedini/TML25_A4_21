@@ -8,21 +8,33 @@ from torchvision import models, transforms
 from lime import lime_image
 from skimage.segmentation import mark_boundaries
 
-
+# Base path
 base_path = r'F:\A-Saarland-University-Courses\TML\TML25_A4_21'
 
+# Output paths
+output_dir = r'F:\A-Saarland-University-Courses\TML\TML25_A4_21\results\output-png\Task3-Results\2'
+raw_output_dir = r'F:\A-Saarland-University-Courses\TML\TML25_A4_21\results\output-png\Task3-Results\Raw'
+
+# Create output directories
+os.makedirs(output_dir, exist_ok=True)
+os.makedirs(raw_output_dir, exist_ok=True)
+
+# Load ImageNet classes
 with open(os.path.join(base_path, 'data', 'imagenet_classes.txt'), 'r') as f:
     classes = [line.strip() for line in f.readlines()]
 
+# Preprocessing pipeline
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 
+# Load model
 model = models.resnet50(weights=models.ResNet50_Weights.IMAGENET1K_V2)
 model.eval()
 
+# Prediction function for LIME
 def predict_proba(images):
     images = torch.from_numpy(images.transpose((0, 3, 1, 2))).float()
     images = images.to(torch.device('cpu'))
@@ -31,6 +43,7 @@ def predict_proba(images):
         probs = torch.nn.functional.softmax(outputs, dim=1).numpy()
     return probs
 
+# Function to find image file with multiple extensions
 def find_image_file(base_path, image_name):
     for ext in ['.jpg', '.JPEG', '.jpeg', '.png']:
         img_path = os.path.join(base_path, image_name + ext)
@@ -39,7 +52,7 @@ def find_image_file(base_path, image_name):
     available_files = os.listdir(base_path)
     raise FileNotFoundError(f"Image {image_name} not found with .jpg, .JPEG, .jpeg, or .png extension. Available files: {available_files}")
 
-image_dir = os.path.join(base_path, 'data', 'imagenet-sample-images')
+# Image names
 image_names = [
     'n02098286_West_Highland_white_terrier',
     'n02018207_American_coot', 
@@ -53,34 +66,46 @@ image_names = [
     'n07747607_orange'
 ]
 
-output_dir = os.path.join(base_path, 'scripts')
-results_dir = os.path.join(base_path, 'results')
-os.makedirs(output_dir, exist_ok=True)
-os.makedirs(results_dir, exist_ok=True)
+# LIME parameters
+lime_params = {
+    "labels": None,
+    "top_labels": 1,
+    "hide_color": 0,
+    "num_features": 100000,
+    "num_samples": 1000,
+    "batch_size": 10,
+    "segmentation_fn": None,
+    "distance_metric": "cosine",
+    "model_regressor": None,
+    "random_seed": None
+}
 
+# Initialize LIME explainer
 explainer = lime_image.LimeImageExplainer()
 
+# Summary dictionary
 summary = {}
 
+# Process each image
 for img_name in image_names:
     try:
-        img_path = find_image_file(image_dir, img_name)
+        img_path = find_image_file(os.path.join(base_path, 'data', 'imagenet-sample-images'), img_name)
     except FileNotFoundError as e:
         print(e)
         continue
     
+    # Load and preprocess image
     img = Image.open(img_path).convert('RGB')
-    img_t = transform(img)
     img_np = np.array(img.resize((224, 224))) / 255.0
     
+    # Generate LIME explanation
     explanation = explainer.explain_instance(
-        img_np, 
-        predict_proba, 
-        top_labels=1, 
-        hide_color=0, 
-        num_samples=1000
+        image=img_np,
+        classifier_fn=predict_proba,
+        **lime_params
     )
     
+    # Get image and mask for visualization
     temp, mask = explanation.get_image_and_mask(
         explanation.top_labels[0], 
         positive_only=False, 
@@ -88,8 +113,10 @@ for img_name in image_names:
         hide_rest=False
     )
     
+    # Generate boundary visualization
     img_boundry = mark_boundaries(temp, mask)
     
+    # Save LIME visualization with boundaries
     output_path = os.path.join(output_dir, f'LIME_{img_name}.png')
     plt.figure()
     plt.imshow(img_boundry)
@@ -98,6 +125,15 @@ for img_name in image_names:
     plt.savefig(output_path, bbox_inches='tight')
     plt.close()
     
+    # Save raw LIME mask
+    raw_output_path = os.path.join(raw_output_dir, f'LIME_raw_{img_name}.png')
+    plt.figure(figsize=(224/100, 224/100), dpi=100)
+    plt.imshow(mask, cmap='jet')
+    plt.axis('off')
+    plt.savefig(raw_output_path, bbox_inches='tight', pad_inches=0)
+    plt.close()
+    
+    # Store results in summary
     summary[img_name] = {
         'image_path': img_path,
         'lime_output': output_path,
@@ -107,8 +143,11 @@ for img_name in image_names:
     
     print(f'Processed {img_name}')
 
-summary_path = os.path.join(results_dir, 'lime_summary.json')
+# Save summary
+summary_path = os.path.join(base_path, 'results', 'lime_summary.json')
 with open(summary_path, 'w') as f:
     json.dump(summary, f, indent=4)
 
 print(f'Saved summary to {summary_path}')
+print(f'LIME visualizations saved in {output_dir}')
+print(f'Raw LIME masks saved in {raw_output_dir}')
